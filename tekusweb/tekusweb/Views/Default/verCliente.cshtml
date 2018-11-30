@@ -1,0 +1,58 @@
+﻿@model Model.cliente
+
+@{
+    ViewBag.Title = "Model.nombre";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<ol class="breadcrumb">
+    <li><a href="~/">Clientes </a></li>
+    <li class="active">@(Model.nombre)</li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Información cliente</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Nombre</dt>
+            <dd>@Model.nombre</dd>
+            <dt>Correo</dt>
+            <dd>@Model.correo</dd>
+            <dt>Nit</dt>
+            <dd>@(Model.nit)</dd>
+            
+        </dl>
+    </div>
+</div>
+
+<br />
+
+@if (Model.servicio.Count > 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Servicios prestados</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Servicios</th>
+                    <th style="width:60px;">Valor</th>
+                    @*<th style="width:60px;">País</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.servicio)
+                {
+                    <tr>
+                        <td>@c.nombre</td>
+                        <td class="text-right">$@c.valor</td>
+                     </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Este cliente no tiene servicios.</p>
+}

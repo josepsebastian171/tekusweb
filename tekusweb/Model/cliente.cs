@@ -49,5 +49,28 @@ namespace Model
             return clientes;
         }
 
+        public cliente verCliente(int id)
+        {
+            var cliente = new cliente();
+
+            try
+            {
+                using (var ctx = new tekusContext())
+                {
+                    cliente = ctx.cliente.Include("servicio")
+                                       .Include("servicio.pais")
+                                       .Where(x => x.id == id)
+                                       .SingleOrDefault();
+                }
+            }
+            catch (Exception E)
+            {
+
+                throw;
+            }
+
+            return cliente;
+        }
+
     }
 }

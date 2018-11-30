@@ -16,5 +16,10 @@ namespace tekusweb.Controllers
         {
             return View(cliente.Listar());
         }
+
+        public ActionResult verCliente(int id = 0)
+        {
+            return View(cliente.verCliente(id));
+        }
     }
 }
