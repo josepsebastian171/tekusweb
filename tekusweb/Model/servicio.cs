@@ -9,6 +9,12 @@ namespace Model
     [Table("servicio")]
     public partial class servicio
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public servicio()
+        {
+            pais = new HashSet<pais>();
+        }
+
         public int id { get; set; }
 
         [StringLength(50)]
@@ -19,5 +25,8 @@ namespace Model
         public int? idcliente { get; set; }
 
         public virtual cliente cliente { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<pais> pais { get; set; }
     }
 }

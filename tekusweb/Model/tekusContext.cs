@@ -13,6 +13,7 @@ namespace Model
         }
 
         public virtual DbSet<cliente> cliente { get; set; }
+        public virtual DbSet<pais> pais { get; set; }
         public virtual DbSet<servicio> servicio { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
