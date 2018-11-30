@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
+<h2 class="page-header">
+    <a href="~/Default/editar" class="btn btn-default pull-right">Nuevo cliente</a>
+    
+</h2>
+
 <table class="table">
     <thead>
         <tr>
@@ -23,7 +28,7 @@
                 <td>
                     <a class="btn btn-xs btn-default" href="~/default/verCliente/@m.id">Visualizar</a>
                     <a class="btn btn-xs btn-primary" href="~/default/editar/@m.id">Editar</a>
-                    <a onclick="return confirm('¿Desea eliminar este registro?');" class="btn btn-xs btn-danger" href="">Eliminar</a>
+                    <a onclick="return confirm('¿Desea eliminar este cliente?');" class="btn btn-xs btn-danger" href="">Eliminar</a>
                 </td>
             </tr>
         }
