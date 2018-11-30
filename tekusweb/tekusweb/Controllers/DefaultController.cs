@@ -21,5 +21,19 @@ namespace tekusweb.Controllers
         {
             return View(cliente.verCliente(id));
         }
+
+        public ActionResult Editar(int id = 0)
+        {
+            return View(
+                id == 0 ? new cliente()
+                        : cliente.verCliente(id)
+            );
+        }
+
+        public ActionResult Salvar(cliente cliente)
+        {
+            cliente.salvarCliente();
+            return Redirect("~/Default");
+        }
     }
 }
