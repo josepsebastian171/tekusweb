@@ -1,8 +1,31 @@
-﻿
+﻿@model List<Model.cliente>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Index</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:250px">Nombre</th>
+            <th style="width:250px;">Correo</th>
+            <th style="width:250px;">Nit</th>
 
+       </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@(m.nombre)</td>
+                <td>@(m.correo)</td>
+                <td>@m.nit</td>
+                <td>
+                    <a class="btn btn-xs btn-default" href="">Visualizar</a>
+                    <a class="btn btn-xs btn-primary" href="">Editar</a>
+                    <a onclick="return confirm('¿Desea eliminar este registro?');" class="btn btn-xs btn-danger" href="">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
