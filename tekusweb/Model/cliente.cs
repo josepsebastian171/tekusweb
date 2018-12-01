@@ -98,5 +98,22 @@ namespace Model
             }
         }
 
+        public void eliminar()
+        {
+            try
+            {
+                using (var ctx = new tekusContext())
+                {
+                    ctx.Entry(this).State = EntityState.Deleted;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception E)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

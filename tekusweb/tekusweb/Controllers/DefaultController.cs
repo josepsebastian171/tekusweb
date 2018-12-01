@@ -35,5 +35,12 @@ namespace tekusweb.Controllers
             cliente.salvarCliente();
             return Redirect("~/Default");
         }
+
+        public ActionResult eliminarCliente(int id)
+        {
+            cliente.id = id;
+            cliente.eliminar();
+            return Redirect("~/Default");
+        }
     }
 }
